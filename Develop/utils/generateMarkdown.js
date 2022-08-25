@@ -1,20 +1,36 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const generateMarkdown = function({title, detail, install, usage, license, contributors, user}) {
+  let licensePick = `${license}`;
+  let licenseLink = '';
+  if (licensePick === 'Mozilla') {
+    licensePick = 'MozillaPublicLicense2.0';
+    licenseLink = 'https://choosealicense.com/licenses/mpl-2.0/';
+  };
+  if (licensePick === 'Apache') {
+    licensePick = 'ApacheLicense2.0';
+    licenseLink = 'https://choosealicense.com/licenses/apache-2.0/';
+  };
+  if (licensePick === 'MIT') {
+    licensePick = 'MITLicense';
+    licenseLink = 'https://choosealicense.com/licenses/mit/';
+  };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
-}
+return (`
+#${title}
+![badge](https://img.shields.io/badge/license-${license}-brightorange)
+## Description
+${detail}
+## Install Instructions
+${install}
+## Credits
+${usage}
+## Instructions/How to use
+${license}
+## License:
+Permission to use this application is granted under the ${license} license. ${licenseLink}
+${contributors}
+## People who have contributed to this project
+## Created By:
+[GitHub link: ${user}](https://github.com/${user})
+  `)}
 
 module.exports = generateMarkdown;
