@@ -1,5 +1,5 @@
 
-#ReadMe generator
+# ReadMe generator
 ![badge](https://img.shields.io/badge/license-MIT-brightorange)
 ## Description
 This application will generate ReadMe files that can be used in GitHub repositories.
