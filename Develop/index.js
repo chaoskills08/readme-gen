@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown')
 
 
 // TODO: Create an array of questions for user input
@@ -17,11 +18,6 @@ inquirer
     name: 'detail',
     },
     {
-    type: 'confirm',
-    message: 'Do you want a table of contents?',
-    name: 'contents',
-    },
-    {
     type: 'input',
     message: 'Please describe how to install the application',
     name: 'install',
@@ -34,7 +30,7 @@ inquirer
     {
     type: 'checkbox',
     message: 'Please select a license if one was used',
-    choices: ['Apache License 2.0', 'GNU General Public License (GPL)', "GNU Library or General Public License (LGPL)", 'MIT', 'Mozilla Public LIcense 2.0', 'Common Development and Distribution'],
+    choices: ['Apache License 2.0', 'MIT', 'Mozilla Public LIcense 2.0'],
     name: 'license',
     },
     {
@@ -46,19 +42,15 @@ inquirer
     type: 'input',
     message: 'Please enter your Github username',
     name: 'user',
-    }
+    },
   ])
 
   .then((response) => {
     console.log(response)
-    const filename = 'readme'
-    fs.writeFile(filename, JSON.stringify(response), (err) => err ? console.log(err) : console.log('success!'))
+    const readMe = generateMarkdown(response)
+    if (!response.title || !response.detail || !response.install || !response.usage || !response.license || !response.contributors || !response.user) {
+        console.log("You missed some fields, please start over")
+        return;
+    }
+    fs.writeFile('readme.md', readMe, (err) => err ? console.log('You missed some fields, please start over') : console.log('README.md created!'))
   }) 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
