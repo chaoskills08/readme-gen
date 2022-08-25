@@ -52,5 +52,5 @@ inquirer
         console.log("You missed some fields, please start over")
         return;
     }
-    fs.writeFile('readme.md', readMe, (err) => err ? console.log('You missed some fields, please start over') : console.log('README.md created!'))
+    fs.writeFile('README.md', readMe, (err) => err ? console.log('You missed some fields, please start over') : console.log('README.md created!'))
   }) 

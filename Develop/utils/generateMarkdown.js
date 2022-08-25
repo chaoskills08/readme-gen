@@ -17,18 +17,17 @@ const generateMarkdown = function({title, detail, install, usage, license, contr
 return (`
 #${title}
 ![badge](https://img.shields.io/badge/license-${license}-brightorange)
-## Description
-${detail}
 ## Description of project
-${install}
+${detail}
 ## How to install
-${usage}
+${install}
 ## What the project is used for
-${license}
+${usage}
 ## License:
+${license}
 Permission to use this application is granted under the ${license} license. ${licenseLink}
-${contributors}
 ## People who have contributed to this project
+${contributors}
 ## Created By:
 [GitHub link: ${user}](https://github.com/${user})
   `)}
