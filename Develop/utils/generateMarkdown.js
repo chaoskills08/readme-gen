@@ -19,11 +19,11 @@ return (`
 ![badge](https://img.shields.io/badge/license-${license}-brightorange)
 ## Description
 ${detail}
-## Install Instructions
+## Description of project
 ${install}
-## Credits
+## How to install
 ${usage}
-## Instructions/How to use
+## What the project is used for
 ${license}
 ## License:
 Permission to use this application is granted under the ${license} license. ${licenseLink}
