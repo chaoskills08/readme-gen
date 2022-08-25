@@ -15,7 +15,7 @@ const generateMarkdown = function({title, detail, install, usage, license, contr
   };
 
 return (`
-#${title}
+# ${title}
 ![badge](https://img.shields.io/badge/license-${license}-brightorange)
 ## Description of project
 ${detail}
